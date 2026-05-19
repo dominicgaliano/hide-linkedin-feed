@@ -12,10 +12,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Build clean zip
+      - name: Build extension zip
         run: |
-          zip -r linkedin-feed-blocker.zip . \
-          -x "*.git*" ".github/*" "dist/*"
+          zip -r linkedin-feed-blocker.zip \
+            manifest.json \
+            hide.css \
+            LICENSE \
+            README.md
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
